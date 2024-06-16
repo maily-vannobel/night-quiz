@@ -1,6 +1,4 @@
-/* edit.css */
-
-/* Styles pour edit_quiz.php */
+/* edit_quiz */
 .editQuizContainer {
     background-color: #f8f9fa;
     padding: 20px;
@@ -19,7 +17,8 @@
     margin-top: 20px;
 }
 
-/* Styles pour edit_answers.php */
+/* edit_answers */
+
 .editAnswersContainer {
     background-color: #f8f9fa;
     padding: 20px;
