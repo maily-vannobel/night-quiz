@@ -43,6 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>Créer un Quiz</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <link href="css/custom.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
@@ -69,16 +71,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </select>
         </div>
         <div id="questions-container">
-            <div class="question-group mb-3">
-                <div class="form-group">
+            <div class="question-group mb-3 d-flex align-items-center">
+                <div class="form-group flex-grow-1 mr-2">
                     <label for="questions[]">Question</label>
                     <input type="text" class="form-control" name="questions[]" required>
                 </div>
-                <button type="button" class="btn btn-danger remove-question">Supprimer cette question</button>
+                <button type="button" class="btn btn-link text-danger remove-question"><i class="bi bi-trash"></i></button>
             </div>
         </div>
-        <button type="button" class="btn btn-secondary" id="add-question">Ajouter une question</button>
-        <button type="submit" class="btn btn-primary mt-3">Créer le quiz</button>
+        <div class="d-flex justify-content-between align-items-center">
+            <a href="#" id="add-question" style="font-size: 24px; color: #6a994e; font-weight: bold;">+</a>
+            <button type="submit" class="custom-btn mt-3">Créer le quiz</button>
+        </div>
     </form>
 </div>
 

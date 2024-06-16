@@ -24,11 +24,20 @@
 
 .user-quizzes-container .card {
     border: none; 
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .user-quizzes-container .card-title {
     color: #264653;
 }
 
+.quiz-title-link {
+    color: #005f73; 
+    text-decoration: none;
+}
+
+.quiz-title-link:hover {
+    text-decoration: underline;
+    color: #004452; }

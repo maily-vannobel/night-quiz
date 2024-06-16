@@ -1,0 +1,51 @@
+.custom-btn {
+    position: relative;
+    display: inline-block;
+    margin: 15px;
+    padding: 10px 25px;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fcbf49;
+    background: transparent;
+    cursor: pointer;
+    transition: ease-out 0.3s;
+    border: 2px solid #fcbf49;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 0 #fcbf49;
+  }
+  
+  .custom-btn:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 #fcbf49;
+  }
+  
+.custom-btn:active {
+    transform: scale(0.9);
+  }
+/* BOUTONS INDEX */
+  .custom-btn1 {
+    position: relative;
+    display: inline-block;
+    margin: 15px;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fcbf49;
+    background: transparent;
+    cursor: pointer;
+    transition: ease-out 0.3s;
+    border: 2px solid #fcbf49;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 0 #fcbf49;
+  }
+  
+  .custom-btn1:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 #fcbf49;
+  }
+  
+.custom-btn1:active {
+    transform: scale(0.9);
+  }

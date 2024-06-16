@@ -28,7 +28,7 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
     <title>Tous les Quiz</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
-    <link href="css/all_quizzes.css" rel="stylesheet">
+    <link href="css/all_quizzes.css?v=1.0" rel="stylesheet">
 </head>
 <body>
 <?php include 'header.php'; ?>
@@ -37,8 +37,8 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
     <h1 class="pageTitle">Tous les Quiz</h1>
     <form method="GET" action="all_quizzes.php" id="category-form">
         <div class="form-group">
-            <label for="categories">Filtrer par catégorie :</label>
             <div class="categories-container">
+                            <label for="categories">Filtrer par catégorie :</label>
                 <?php foreach ($categories as $category): ?>
                     <div class="form-check category-item">
                         <input class="form-check-input" type="checkbox" name="categories[]" value="<?php echo $category['id']; ?>" id="category<?php echo $category['id']; ?>"

@@ -32,7 +32,8 @@ foreach ($userQuizzes as $quiz) {
     <meta charset="UTF-8">
     <title>Tableau de bord</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <link href="css/dashboard.css?v=1.1" rel="stylesheet">
 </head>
 <body>
 <?php include 'header.php'; ?>
@@ -59,10 +60,15 @@ foreach ($userQuizzes as $quiz) {
             if (!empty($userQuizzes)) {
                 foreach ($userQuizzes as $quiz) {
                     echo "<div class='card mb-3'>";
-                    echo "<div class='card-body'>";
-                    echo "<h5 class='card-title'>" . htmlspecialchars($quiz["title"]) . "</h5>";
+                    echo "<div class='card-body d-flex justify-content-between align-items-center'>";
+                    echo "<div>";
+                    echo "<h5 class='card-title'><a href='quiz_details.php?id=" . htmlspecialchars($quiz["id"]) . "' class='quiz-title-link'>" . htmlspecialchars($quiz["title"]) . "</a></h5>";
                     echo "<p class='card-text'>" . htmlspecialchars($quiz["description"]) . "</p>";
-                    echo "<a href='quiz_details.php?id=" . htmlspecialchars($quiz["id"]) . "' class='btn btn-primary'>Voir le quiz</a>";
+                    echo "</div>";
+                    echo "<form method='POST' action='delete_quiz.php' onsubmit='return confirm(\"Voulez-vous vraiment supprimer ce quiz ?\");' style='display:inline;'>";
+                    echo "<input type='hidden' name='quiz_id' value='" . htmlspecialchars($quiz["id"]) . "'>";
+                    echo "<button type='submit' class='btn btn-link text-danger'><i class='bi bi-trash'></i></button>";
+                    echo "</form>";
                     echo "</div>";
                     echo "</div>";
                 }
