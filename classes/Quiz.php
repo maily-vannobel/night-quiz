@@ -48,23 +48,29 @@ class Quiz extends Bdd {
     }
 
     //5: supprimer un quiz
-    public function deleteQuiz($quiz_id) {
+    public function deleteQuiz($quiz_id, $user_id) {
+        // Vérifier que l'utilisateur est le créateur du quiz
+        $quiz = $this->getQuizById($quiz_id);
+        if ($quiz['create_id'] != $user_id) {
+            throw new Exception('Vous n\'avez pas la permission de supprimer ce quiz.');
+        }
+    
         try {
             $this->conn->beginTransaction();
     
-            // suppr réponses associées aux questions du quiz
+            // Supprimer réponses associées aux questions du quiz
             $sql = 'DELETE FROM answers WHERE question_id IN (SELECT id FROM questions WHERE quiz_id = :quiz_id)';
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':quiz_id', $quiz_id, PDO::PARAM_INT);
             $stmt->execute();
     
-            // suppr questions associées au quiz
+            // Supprimer questions associées au quiz
             $sql = 'DELETE FROM questions WHERE quiz_id = :quiz_id';
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':quiz_id', $quiz_id, PDO::PARAM_INT);
             $stmt->execute();
     
-            // Supprimer le quiz
+            // Supprimer quiz
             $sql = 'DELETE FROM quiz WHERE id = :id';
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $quiz_id, PDO::PARAM_INT);
@@ -74,6 +80,6 @@ class Quiz extends Bdd {
         } catch (PDOException $e) {
             $this->conn->rollBack();
             throw $e;
-        }}
+        }
     }
-?>
+}

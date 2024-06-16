@@ -1,14 +1,14 @@
 /* dashboard.css */
 
 .dashboard-container {
-    background-color: #f8f9fa; /* Slightly darker background for the dashboard */
+    background-color: #f8f9fa; 
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .user-stats-container .card {
-    border: none; /* Remove border from card */
+    border: none; 
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -18,12 +18,12 @@
 }
 
 .user-stats-container .list-group-item {
-    background-color: #ffffff; /* White background for list items */
-    border: none; /* No border for list items */
+    background-color: #ffffff; 
+    border: none; 
 }
 
 .user-quizzes-container .card {
-    border: none; /* Remove border from quiz cards */
+    border: none; 
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

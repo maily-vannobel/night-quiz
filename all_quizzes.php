@@ -2,13 +2,10 @@
 require_once 'classes/Quiz.php';
 require_once 'classes/Categories.php';
 
+session_start();
+
 $quizClass = new Quiz();
 $categoryClass = new Categories();
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_quiz'])) {
-    $quiz_id = $_POST['quiz_id'];
-    $quizClass->deleteQuiz($quiz_id);
-}
 
 try {
     $quizzes = $quizClass->getAllQuizzes();
@@ -19,6 +16,9 @@ try {
 
 // Récupérer les catégories sélectionnées
 $selectedCategories = isset($_GET['categories']) ? $_GET['categories'] : [];
+
+// Récupérer l'ID de l'utilisateur connecté
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 ?>
 
 <!DOCTYPE html>
@@ -58,15 +58,17 @@ $selectedCategories = isset($_GET['categories']) ? $_GET['categories'] : [];
         if (!empty($quizzes)) {
             foreach ($quizzes as $quiz) {
                 if (empty($selectedCategories) || in_array($quiz['category_id'], $selectedCategories)) {
-                    echo "<div class='quizItem mb-3 p-3 border rounded'>"; 
-                    echo "<div class='d-flex justify-content-between align-items-center'>";
+                    echo "<div class='quizItem mb-3 p-3 border rounded d-flex justify-content-between align-items-center'>"; 
+                    echo "<div>";
                     echo "<h3><a href='quiz_details.php?id=" . htmlspecialchars($quiz["id"]) . "' class='quiz-title-link'>" . htmlspecialchars($quiz["title"]) . "</a></h3>"; 
-                    echo "<form method='POST' action='all_quizzes.php' class='mb-0'>";
-                    echo "<input type='hidden' name='quiz_id' value='" . htmlspecialchars($quiz["id"]) . "'>";
-                    echo "<button type='submit' name='delete_quiz' class='btn btn-link p-0' onclick='return confirm(\"Êtes-vous sûr de vouloir supprimer ce quiz ?\");'><i class='bi bi-trash text-danger'></i></button>";
-                    echo "</form>";
-                    echo "</div>";
                     echo "<p>" . htmlspecialchars($quiz["description"]) . "</p>"; 
+                    echo "</div>";
+                    if ($user_id && $quiz['create_id'] == $user_id) {
+                        echo "<form method='POST' action='delete_quiz.php' onsubmit='return confirm(\"Voulez-vous vraiment supprimer ce quiz ?\");' style='display:inline;'>";
+                        echo "<input type='hidden' name='quiz_id' value='" . htmlspecialchars($quiz["id"]) . "'>";
+                        echo "<button type='submit' class='btn btn-link text-danger'><i class='bi bi-trash'></i></button>";
+                        echo "</form>";
+                    }
                     echo "</div>"; 
                 }
             }
