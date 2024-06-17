@@ -78,5 +78,6 @@ $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
         ?>
     </div>
 </div>
+<?php include 'footer.php'; ?>
 </body>
 </html>

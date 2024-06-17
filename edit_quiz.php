@@ -55,6 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Modifier le Quiz</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/edit.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
 </head>
 <body>
 <?php include 'header.php'; ?>
@@ -89,5 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit" name="finish_edit" class="btn btn-success">Modifier les réponses</button>
     </form>
 </div>
+
+<?php include 'footer.php'; ?>
 </body>
 </html>

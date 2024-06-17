@@ -1,0 +1,33 @@
+/* Styles pour le carousel */
+.carousel-item {
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #f4a261;
+    border-radius: 50%;
+}
+
+
+.quiz-title a {
+    color: #005f73;
+    text-decoration: none;
+}
+
+.quiz-title a:hover {
+    text-decoration: underline;
+    color: #004452;
+}
+
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-container {
+    padding: 20px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+}

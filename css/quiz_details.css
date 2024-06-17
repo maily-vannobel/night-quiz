@@ -1,14 +1,14 @@
 /* quiz_details.css */
 
 .quizzContainer {
-    background-color: #ffffff; /* White background */
-    border: 1px solid #dee2e6; /* Light grey border */
+    background-color: #ffffff; 
+    border: 1px solid #dee2e6; 
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .quizzInfos {
-    background-color: #f8f9fa; /* Slightly darker background for infos */
+    background-color: #f8f9fa; 
     border: 1px solid #dee2e6;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -20,12 +20,12 @@
 
 .settings-icon {
     font-size: 24px;
-    color: #007bff;
+    color: #005f73;
     cursor: pointer;
 }
 
 .settings-icon:hover {
-    color: #0056b3;
+    color: #004452;
 }
 
 .quiz-title-container {

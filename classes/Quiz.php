@@ -82,4 +82,14 @@ class Quiz extends Bdd {
             throw $e;
         }
     }
+
+    //6: recup 5 derniers quizs
+    public function getRecentQuizzes($limit) {
+        $sql = 'SELECT * FROM quiz ORDER BY create_id DESC LIMIT :limit';
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 }
